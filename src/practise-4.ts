@@ -28,5 +28,4 @@ const circleArea = parseInt(
   calculateShapeArea({ shape: 'circle', radius: 5 }).toFixed(2)
 );
 console.log(circleArea);
-
 console.log(rectangleArea);
