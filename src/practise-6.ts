@@ -1,35 +1,37 @@
-interface Profile {
-  name: string;
-  age: number;
-  email: string;
-  [key: string]: string | number;
-}
-
-// Solution: 1
-//NOTE: If we want to check the second object prop persist in 1st object and update then
-
-const myProfile = { name: 'Alice', age: 25, email: 'alice@example.com' };
-
-const updateProfile = (profObj: Profile, newObj: any) => {
-  for (const prop in profObj) {
-    if (prop in newObj) {
-      profObj[prop] = newObj[prop];
-    }
+{
+  interface Profile {
+    name: string;
+    age: number;
+    email: string;
+    [key: string]: string | number;
   }
 
-  return profObj;
-};
+  // Solution: 1
+  //NOTE: If we want to check the second object prop persist in 1st object and update then
 
-const result = updateProfile(myProfile, { age: 26 });
-console.log(result);
+  const myProfile = { name: 'Alice', age: 25, email: 'alice@example.com' };
 
-// Solution 2
-//NOTE: If we want to merge two objects
-const updateProfile2 = <T>(obj: Profile, updatedObj: T) => ({
-  ...obj,
-  ...updatedObj,
-});
+  const updateProfile = (profObj: Profile, newObj: any) => {
+    for (const prop in profObj) {
+      if (prop in newObj) {
+        profObj[prop] = newObj[prop];
+      }
+    }
 
-const myProfile2 = { name: 'Bob', age: 24, email: 'bob@yahoo.com' };
+    return profObj;
+  };
 
-console.log(updateProfile2(myProfile2, { age: 26 }));
+  const result = updateProfile(myProfile, { age: 26 });
+  console.log(result);
+
+  // Solution 2
+  //NOTE: If we want to merge two objects
+  const updateProfile2 = <T>(obj: Profile, updatedObj: T) => ({
+    ...obj,
+    ...updatedObj,
+  });
+
+  const myProfile2 = { name: 'Bob', age: 24, email: 'bob@yahoo.com' };
+
+  console.log(updateProfile2(myProfile2, { age: 26 }));
+}

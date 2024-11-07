@@ -1,16 +1,22 @@
-class Car {
-  constructor(public make: string, public model: string, public year: number) {}
+{
+  class Car {
+    constructor(
+      public make: string,
+      public model: string,
+      public year: number
+    ) {}
 
-  public getCarAge() {
-    const calculateYear = new Date().getFullYear() - this.year;
-    // return `The car age is ${calculateYear} ${
-    //   calculateYear <= 1 ? 'year' : 'years'
-    // }`;
+    public getCarAge() {
+      const calculateYear = new Date().getFullYear() - this.year;
+      // return `The car age is ${calculateYear} ${
+      //   calculateYear <= 1 ? 'year' : 'years'
+      // }`;
 
-    return calculateYear;
+      return calculateYear;
+    }
   }
-}
 
-const car = new Car('Honda', 'Civic', 2018);
-const carAge = car.getCarAge();
-console.log(carAge);
+  const car = new Car('Honda', 'Civic', 2018);
+  const carAge = car.getCarAge();
+  console.log(carAge);
+}
